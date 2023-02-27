@@ -1,6 +1,7 @@
 const fs = require("fs").promises;
 const path = require("path");
 require('colors')
+const uniqid = require('uniqid'); 
 
 
 const contactPath = path.join('./db/contacts.json');
@@ -29,7 +30,7 @@ async function removeContact(contactId) {
 
 async function addContact(name, email, phone) {
   const newContact = {
-    id: new Date().toISOString(),
+    id: uniqid(),
     name,
     email,
     phone,
